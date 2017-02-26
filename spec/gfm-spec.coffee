@@ -625,11 +625,11 @@ describe "GitHub Flavored Markdown grammar", ->
 
   it "tokenizes > quoted text", ->
     {tokens} = grammar.tokenizeLine("> Quotation :+1:")
-    expect(tokens[0]).toEqual value: ">", scopes: ["source.gfm", "comment.quote.gfm", "support.quote.gfm"]
-    expect(tokens[1]).toEqual value: " Quotation ", scopes: ["source.gfm", "comment.quote.gfm"]
-    expect(tokens[2]).toEqual value: ":", scopes: ["source.gfm", "comment.quote.gfm", "string.emoji.gfm", "string.emoji.start.gfm"]
-    expect(tokens[3]).toEqual value: "+1", scopes: ["source.gfm", "comment.quote.gfm", "string.emoji.gfm", "string.emoji.word.gfm"]
-    expect(tokens[4]).toEqual value: ":", scopes: ["source.gfm", "comment.quote.gfm", "string.emoji.gfm", "string.emoji.end.gfm"]
+    expect(tokens[0]).toEqual value: ">", scopes: ["source.gfm", "markup.quote.gfm", "support.quote.gfm"]
+    expect(tokens[1]).toEqual value: " Quotation ", scopes: ["source.gfm", "markup.quote.gfm"]
+    expect(tokens[2]).toEqual value: ":", scopes: ["source.gfm", "markup.quote.gfm", "string.emoji.gfm", "string.emoji.start.gfm"]
+    expect(tokens[3]).toEqual value: "+1", scopes: ["source.gfm", "markup.quote.gfm", "string.emoji.gfm", "string.emoji.word.gfm"]
+    expect(tokens[4]).toEqual value: ":", scopes: ["source.gfm", "markup.quote.gfm", "string.emoji.gfm", "string.emoji.end.gfm"]
 
   it "tokenizes HTML entities", ->
     {tokens} = grammar.tokenizeLine("&trade; &#8482; &a1; &#xb3;")
